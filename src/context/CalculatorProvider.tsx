@@ -1,4 +1,10 @@
-import React, { createContext, ReactNode, useState, Dispatch, SetStateAction } from 'react';
+import React, {
+  createContext,
+  ReactNode,
+  useState,
+  Dispatch,
+  SetStateAction,
+} from "react";
 
 interface Calculation {
   sign: string;
@@ -13,7 +19,9 @@ interface CalculatorContextProps {
   addToHistory: (entry: number | string) => void;
 }
 
-export const CalculatorContext = createContext<CalculatorContextProps | undefined>(undefined);
+export const CalculatorContext = createContext<
+  CalculatorContextProps | undefined
+>(undefined);
 
 interface CalculatorProviderProps {
   children: ReactNode;
@@ -21,7 +29,7 @@ interface CalculatorProviderProps {
 
 const CalculatorProvider = ({ children }: CalculatorProviderProps) => {
   const [calculation, setCalculation] = useState<Calculation>({
-    sign: '',
+    sign: "",
     number: 0,
     result: 0,
   });
@@ -29,7 +37,7 @@ const CalculatorProvider = ({ children }: CalculatorProviderProps) => {
   const [history, setHistory] = useState<(number | string)[]>([]);
 
   const addToHistory = (entry: number | string) => {
-    setHistory(prevHistory => [...prevHistory, entry]);
+    setHistory((prevHistory) => [...prevHistory, entry]);
   };
 
   const providerValue: CalculatorContextProps = {

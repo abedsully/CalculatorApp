@@ -31,7 +31,8 @@ const styling = (name: string | number) => {
 };
 
 const Button: React.FunctionComponent<ButtonProps> = ({ value }) => {
-    const { calculation, setCalculation, addToHistory } = useContext(CalculatorContext)!;
+  const { calculation, setCalculation, addToHistory } =
+    useContext(CalculatorContext)!;
   const helpOperation = useHelpOperation();
 
   // Delete Operation
@@ -97,7 +98,7 @@ const Button: React.FunctionComponent<ButtonProps> = ({ value }) => {
       const MathOperations: Record<string, (a: number, b: number) => number> = {
         "+": (a, b) => a + b,
         "-": (a, b) => a - b,
-        "X": (a, b) => a * b,
+        X: (a, b) => a * b,
         "/": (a, b) => a / b,
       };
 
@@ -106,7 +107,9 @@ const Button: React.FunctionComponent<ButtonProps> = ({ value }) => {
         calculation.number
       );
 
-      const finalResult = Number.isFinite(newResult) ? Number(newResult) : "Err";
+      const finalResult = Number.isFinite(newResult)
+        ? Number(newResult)
+        : "Err";
 
       setCalculation({
         result: finalResult,

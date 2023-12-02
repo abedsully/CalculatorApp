@@ -1,23 +1,22 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SupportPage = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    topic: '',
-    description: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    topic: "",
+    description: "",
   });
 
   const [errors, setErrors] = useState({
-    email: '',
+    email: "",
   });
 
   const [isFormSubmitted, setFormSubmitted] = useState(false);
 
-  const randomNumber = () => Math.floor(Math.random()*1000) + 1;
+  const randomNumber = () => Math.floor(Math.random() * 1000) + 1;
   const navigate = useNavigate();
 
   const validateForm = () => {
@@ -26,10 +25,10 @@ const SupportPage = () => {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      newErrors.email = 'Invalid email address';
+      newErrors.email = "Invalid email address";
       valid = false;
     } else {
-      newErrors.email = '';
+      newErrors.email = "";
     }
 
     setErrors(newErrors);
@@ -43,7 +42,9 @@ const SupportPage = () => {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -52,42 +53,41 @@ const SupportPage = () => {
   };
 
   const isSubmitDisabled =
-    formData.firstName.trim() === '' ||
-    formData.lastName.trim() === '' ||
-    formData.email.trim() === '' ||
-    formData.topic === '';
+    formData.firstName.trim() === "" ||
+    formData.lastName.trim() === "" ||
+    formData.email.trim() === "" ||
+    formData.topic === "";
 
-
-    const handleNavigate = () => {
-        navigate('/'); 
-    };
-
-    
+  const handleNavigate = () => {
+    navigate("/");
+  };
 
   return (
-    <div className='supportPage'>
+    <div className="supportPage">
       {isFormSubmitted ? (
         <>
           <h3>Support Ticket Form</h3>
           <hr />
-          <p className='thankyouMessage'>Thank you for sending us your report, we will track the problem now</p>
-          <p className='ticketNumber'>ticket number: {randomNumber()}</p>
-          <div className='backButton'>
-              <button
-                type="submit"
-                className='buttonStyling'
-                onClick={handleNavigate}
-              >
-               Back to Calculator
-              </button>
-            </div>
+          <p className="thankyouMessage">
+            Thank you for sending us your report, we will track the problem now
+          </p>
+          <p className="ticketNumber">ticket number: {randomNumber()}</p>
+          <div className="backButton">
+            <button
+              type="submit"
+              className="buttonStyling"
+              onClick={handleNavigate}
+            >
+              Back to Calculator
+            </button>
+          </div>
         </>
       ) : (
         <>
           <h3>Support Ticket Form</h3>
           <hr />
           <form onSubmit={handleSubmit}>
-            <div className='formStyle'>
+            <div className="formStyle">
               <label htmlFor="firstName">First Name:</label>
               <input
                 type="text"
@@ -98,7 +98,7 @@ const SupportPage = () => {
               />
             </div>
 
-            <div className='formStyle'>
+            <div className="formStyle">
               <label htmlFor="lastName">Last Name:</label>
               <input
                 type="text"
@@ -109,7 +109,7 @@ const SupportPage = () => {
               />
             </div>
 
-            <div className='formStyle'>
+            <div className="formStyle">
               <label htmlFor="email">Email:</label>
               <input
                 type="text"
@@ -122,32 +122,32 @@ const SupportPage = () => {
             </div>
 
             <div>
-          <label>Topic:</label>
-          <div className='formRadio'>
-            <label>
-              <input
-                type="radio"
-                name="topic"
-                value="general"
-                checked={formData.topic === 'general'}
-                onChange={handleChange}
-              />
-              General
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="topic"
-                value="bug"
-                checked={formData.topic === 'bug'}
-                onChange={handleChange}
-              />
-              Bug
-            </label>
-          </div>
-        </div>
+              <label>Topic:</label>
+              <div className="formRadio">
+                <label>
+                  <input
+                    type="radio"
+                    name="topic"
+                    value="general"
+                    checked={formData.topic === "general"}
+                    onChange={handleChange}
+                  />
+                  General
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="topic"
+                    value="bug"
+                    checked={formData.topic === "bug"}
+                    onChange={handleChange}
+                  />
+                  Bug
+                </label>
+              </div>
+            </div>
 
-            <div className='formDescription'>
+            <div className="formDescription">
               <label htmlFor="description">Description:</label>
               <textarea
                 id="description"
@@ -157,10 +157,10 @@ const SupportPage = () => {
               />
             </div>
 
-            <div className='formButton'>
+            <div className="formButton">
               <button
                 type="submit"
-                className='buttonStyling'
+                className="buttonStyling"
                 disabled={isSubmitDisabled}
               >
                 SEND
