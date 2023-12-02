@@ -1,0 +1,248 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+body {
+  height: 100vh;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.screen {
+  padding-left: .5rem;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  height: 2rem;
+  margin-bottom: 5rem;
+  margin-left: 2rem;
+}
+
+.wrapper {
+  background: #585657;
+  width: 21rem;
+  padding: 2rem;
+  margin-top: 3rem;
+  border-radius: 1rem;
+}
+
+.buttonBoxContainer {
+  background: #242424;
+  width: 21rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  margin-left: -2rem;
+  padding: 1rem;
+  margin-bottom: -2rem;
+}
+
+.buttonBox {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .8rem;
+}
+
+.button {
+  background: #a5a5a5;
+  height: 4rem;
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.support {
+  background: #866140;
+}
+
+.operator {
+  transition: opacity 0.2s ease-in-out;
+  background: #ff9e0b;
+}
+
+.operator:hover {
+  background: white;
+  color: #ff9e0b;
+  opacity: 1;
+}
+
+.zero {
+  border-radius: 2rem;
+  grid-column: span 2;
+}
+
+.equals {
+  border-radius: 2rem;
+  background: #ff9e0b;
+  grid-column: span 2;
+}
+
+.equals:hover {
+  background: white;
+  color: #ff9e0b;
+  opacity: 1;
+}
+.calculator-container {
+  display: flex;
+}
+
+.history-container {
+  overflow-y: auto;
+  max-height: 100px;
+}
+
+.history {
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  word-break: break-all; 
+  color: white;
+}
+
+.screen-container {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+
+/* SupportPage.tsx */
+
+.supportPage {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20rem;
+  height: 100vh;
+  width: max-content;
+  background: black;
+  gap: 1rem;
+}
+
+h3 {
+  font-size: 40px;
+  text-align: left;
+  margin-top: -15rem;
+}
+
+.thankyouMessage{
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+  color: #ff9e0b;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.ticketNumber{
+  font-size: 16px;
+  text-align: center;
+}
+
+.backButton {
+  margin-top: 6rem;
+  display: flex;
+  justify-content: center;
+}
+
+.backButton .buttonStyling {
+  border: 1px solid transparent;
+  padding: 1rem;
+  color: white;
+  background-color: #ff9e0b;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.formStyle {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.formStyle input {
+  background: transparent;
+  border: .1px solid white;
+  padding: .3rem;
+  color: white;
+}
+
+.formStyle input:focus {
+  border-color: #ff9e0b;
+  outline: none;
+}
+
+.formRadio{
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.formRadio input[type='radio'] {
+  accent-color: #ff9e0b;
+}
+
+.formDescription {
+  display: flex;
+  flex-direction: column;
+}
+
+.formDescription textarea {
+  color: white;
+  height: 200px; 
+  background-color: transparent;
+  border: .1px solid white;
+}
+
+.formDescription textarea:focus {
+  border-color: #ff9e0b;
+  outline: none;
+}
+
+.formButton {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.formButton .buttonStyling {
+  border: 1px solid transparent;
+  padding: .3rem .8rem;
+  color: white;
+  background-color: #ff9e0b;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.formButton .buttonStyling:disabled {
+  background-color: grey;
+  cursor: not-allowed; /* Optional: Change cursor to not-allowed when disabled */
+}
+
+
+.error {
+  margin-top: .2rem;
+  font-size: 14px;
+  color: red;
+}
+
